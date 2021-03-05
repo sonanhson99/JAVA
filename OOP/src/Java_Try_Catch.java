@@ -5,8 +5,9 @@ public class Java_Try_Catch {
         Scanner sc = new Scanner(System.in);
         try {
             int a = sc.nextInt();
+            System.out.println(a);
+            sc.close();
         } catch (Exception e) {
-            //TODO: handle exception
             System.out.println("so vua nhap khong phai so nguyen!");
         }
     }
