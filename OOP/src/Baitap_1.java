@@ -26,6 +26,13 @@ public class Baitap_1 {
         }
         return sum;
     }
+    static long sumOfCubesOddNumber(int n) {
+        long sum = 0;
+        for(long i = 1; i <= 2*n; i += 2) {
+            sum += i*i*i;
+        }
+        return (long) (sum % (1e9 + 7));
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -39,5 +46,6 @@ public class Baitap_1 {
         }
         System.out.println(sum);
         sc.close();
+        System.out.println(sumOfCubesOddNumber(7));
     }
 }
