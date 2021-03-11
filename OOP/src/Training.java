@@ -64,6 +64,32 @@ public class Training {
         }
         return true;
     }
+    static boolean uglyNumber(long n) {
+        if( n == 0 ||n == 1) return false;
+        while(n % 2 == 0) {
+            n /= 2;
+        }
+        while(n % 3 == 0) {
+            n /= 3;
+        }
+        while(n % 5 == 0) {
+            n /= 5;
+        }
+        if (n == 0) return true;
+        else return false;
+    }
+    static int multiplicationOfLuckynumber(long n) {
+        ArrayList<Long> a = new ArrayList<Long>();
+        while (n > 0) {
+            a.add(n % 10);
+            n /= 10;
+        }
+        for (int i = 0; i < a.size(); i++) {
+            if(a.get(i) == 4) return -1;
+        }
+        if((a.get(0)*a.get(a.size() - 1)) % 10 == 4) return -1;
+        else return (int) (a.get(0)*a.get(a.size() - 1));
+    }
     public static void main(String[] args) {
         // int arr[] = {19, 17, 19, 68, 68};
         // System.out.println(uniqueNumber(arr));
@@ -72,7 +98,7 @@ public class Training {
         // System.out.println(promotion(x, y, s));
         // String phone = "0966533533";
         // System.out.println(validPhoneNumber(phone));
-        long n = 123456778;
-        System.out.println(checkSpecialNumber(n));
+        long n = 923567786;
+        System.out.println(multiplicationOfLuckynumber(n));
     } 
 }
