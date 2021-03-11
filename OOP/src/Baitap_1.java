@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Baitap_1 {
-    static boolean[] a = new boolean[100000000];
+    static boolean[] a = new boolean[1000000000];
     static void snt(int n) {
         a[0] = a[1] = false;
         for (int i = 2; i <= n; i++) {
@@ -33,19 +33,29 @@ public class Baitap_1 {
         }
         return (long) (sum % (1e9 + 7));
     }
+    static int uocSntMax(int n) {
+        snt((int) Math.sqrt(n));
+        for (int i =(int) Math.sqrt(n); i >= 2; i--) {
+            if (n % i == 0) {
+                return i;
+            }
+        }
+        return n;
+    }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int sum = 0;
-        int[] arr = new int[n];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextInt();
-        }
-        for (int i = 0; i < arr.length; i++) {
-            sum += pt(arr[i]);
-        }
-        System.out.println(sum);
-        sc.close();
-        System.out.println(sumOfCubesOddNumber(7));
+        // Scanner sc = new Scanner(System.in);
+        // int n = sc.nextInt();
+        // int sum = 0;
+        // int[] arr = new int[n];
+        // for (int i = 0; i < arr.length; i++) {
+        //     arr[i] = sc.nextInt();
+        // }
+        // for (int i = 0; i < arr.length; i++) {
+        //     sum += pt(arr[i]);
+        // }
+        // System.out.println(sum);
+        // sc.close();
+        // System.out.println(sumOfCubesOddNumber(7));
+        System.out.println(uocSntMax(31));
     }
 }
