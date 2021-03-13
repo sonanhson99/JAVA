@@ -90,6 +90,36 @@ public class Training {
         if((a.get(0)*a.get(a.size() - 1)) % 10 == 4) return -1;
         else return (int) (a.get(0)*a.get(a.size() - 1));
     }
+    static boolean primeSquare(long a, long b) {
+        int n = (int) (a*a - b*b);
+        boolean[] snt = new boolean[10000000];
+        snt[0] = snt[1] = false;
+        for (int i = 2; i <= n; i++) {
+            snt[i] = true;
+        }
+        for (int i = 2; i <= n; i++) {
+            if (snt[i]) {
+                for (int j = 2*i; j <= n; j+=i) {
+                    snt[j] = false;
+                }
+            }
+        }
+        return snt[n];
+    }
+    static String createPhoneNumber(int[] arr) {
+            String sdt = "(";
+            for (int i = 0; i < 3; i++) {
+                sdt += String.valueOf(arr[i]);
+            }
+            sdt += ") ";
+            for (int i = 3; i < arr.length; i++) {
+                if (i == 6) {
+                    sdt += ("-" + String.valueOf(arr[i]));
+                }
+                else sdt += String.valueOf(arr[i]);
+            }
+            return sdt;
+    }
     public static void main(String[] args) {
         // int arr[] = {19, 17, 19, 68, 68};
         // System.out.println(uniqueNumber(arr));
@@ -98,7 +128,9 @@ public class Training {
         // System.out.println(promotion(x, y, s));
         // String phone = "0966533533";
         // System.out.println(validPhoneNumber(phone));
-        long n = 923567786;
-        System.out.println(multiplicationOfLuckynumber(n));
+        // long n = 923567786;
+        // System.out.println(multiplicationOfLuckynumber(n));
+        int[] arr = {1,2,3,4,3,4,7,8,3,0};
+        System.out.println(createPhoneNumber(arr));
     } 
 }
