@@ -120,6 +120,15 @@ public class Training {
             }
             return sdt;
     }
+    static int checkNumber(String s) {
+        try {
+            double l = new Double(s);
+            return 1;
+        } catch (Exception e) {
+            //TODO: handle exception
+            return -1;
+        }
+    }
     public static void main(String[] args) {
         // int arr[] = {19, 17, 19, 68, 68};
         // System.out.println(uniqueNumber(arr));
@@ -132,5 +141,6 @@ public class Training {
         // System.out.println(multiplicationOfLuckynumber(n));
         int[] arr = {1,2,3,4,3,4,7,8,3,0};
         System.out.println(createPhoneNumber(arr));
+        System.out.println(checkNumber("12e3.24"));
     } 
 }
